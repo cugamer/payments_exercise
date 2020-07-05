@@ -1,0 +1,12 @@
+require: rubocop-rails
+
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
+    - 'bin/**/*'
+    - !ruby/regexp /old_and_unused\.rb$/
+    - 'test/test_helper.rb'
+    - 'spec/rails_helper.rb'
+    - 'Gemfile'

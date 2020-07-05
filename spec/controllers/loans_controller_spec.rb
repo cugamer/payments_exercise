@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe LoansController, type: :controller do
@@ -18,7 +20,7 @@ RSpec.describe LoansController, type: :controller do
 
     context 'if the loan is not found' do
       it 'responds with a 404' do
-        get :show, params: { id: 10000 }
+        get :show, params: { id: 10_000 }
         expect(response).to have_http_status(:not_found)
       end
     end

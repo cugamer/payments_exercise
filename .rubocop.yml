@@ -20,3 +20,6 @@ Rails/HasManyOrHasOneDependent:
   Enabled: false
 Rails/ApplicationRecord:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false

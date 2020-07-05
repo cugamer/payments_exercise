@@ -1,13 +1,15 @@
+# frozen_string_literal: true
+
 class PaymentsController < ApplicationController
   def show
+    render json: Payment.find(params[:id]), status: :ok
+  rescue StandardError => e
+    render json: { error: e.message }, status: :bad_request
   end
 
   def create
-    payment = Payment.new(payment_params)
-
-    if payment.save!
-      render json: {}, status: :created
-    end
+    Payment.create(payment_params)
+    render json: {}, status: :created
   rescue StandardError => e
     render json: { error: e.message }, status: :bad_request
   end

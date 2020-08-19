@@ -11,6 +11,6 @@ class Payment < ActiveRecord::Base
 
   before_save do
     balance = loan.funded_amount.to_i - loan.payments.sum(:amount)
-    raise ArgumentError, "Payment amount is greater than balance #{balance}" if (balance - amount).negative?
+    raise ArgumentError, "Payment amount is greater than balance: #{balance}" if (balance - amount).negative?
   end
 end

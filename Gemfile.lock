@@ -88,6 +88,8 @@ GEM
     pry (0.13.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
+    pry-rails (0.3.9)
+      pry (>= 0.10.4)
     rack (2.2.2)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -189,7 +191,7 @@ DEPENDENCIES
   factory_bot
   jbuilder (~> 2.0)
   listen
-  pry
+  pry-rails
   rails (~> 5.2.4)
   rspec-rails
   rubocop-rails

@@ -6,10 +6,10 @@ class LoansController < ActionController::API
   end
 
   def index
-    render json: Loan.all
+    render json: Loan.loans_with_balance
   end
 
   def show
-    render json: Loan.find(params[:id])
+    render json: Loan.loans_with_balance(params[:id])
   end
 end

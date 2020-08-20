@@ -4,7 +4,7 @@ class PaymentsController < ApplicationController
   def show
     render json: Payment.find(params[:id]), status: :ok
   rescue StandardError => e
-    render json: { error: e.message }, status: :bad_request
+    render json: { error: e.message }, status: :not_found
   end
 
   def create

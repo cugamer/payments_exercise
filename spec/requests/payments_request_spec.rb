@@ -19,7 +19,7 @@ RSpec.describe 'Payments', type: :request do
 
       it 'returns http bad request' do
         get "/payments/#{payment_id + 1}"
-        expect(response).to have_http_status(:bad_request)
+        expect(response).to have_http_status(:not_found)
       end
     end
   end

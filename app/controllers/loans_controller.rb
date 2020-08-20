@@ -12,4 +12,8 @@ class LoansController < ActionController::API
   def show
     render json: Loan.loans_with_balance(params[:id])
   end
+
+  def payments
+    render json: Loan.find(params[:loan_id]).payments
+  end
 end

@@ -25,4 +25,21 @@ RSpec.describe LoansController, type: :controller do
       end
     end
   end
+
+  describe '#payments' do
+    let(:loan) { FactoryBot.create(:loan, funded_amount: 500) }
+    let!(:payments) { FactoryBot.create_list(:payment, 5, loan_id: loan.id, amount: 5) }
+
+    it 'responds with a loans payments' do
+      get :payments, params: { loan_id: loan.id }
+      expect(response.body).to eq payments.to_json
+    end
+
+    context 'if the loan is not found' do
+      it 'responds with a 404' do
+        get :show, params: { id: 10_000 }
+        expect(response).to have_http_status(:not_found)
+      end
+    end
+  end
 end
